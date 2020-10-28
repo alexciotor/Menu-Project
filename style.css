@@ -21,28 +21,47 @@ img {
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
+
+.title h2 {
+  font-size: 50px;
+}
 /* underline of title */
 .underline {
   margin: auto;
-  width: 60px;
-  border-bottom: 4px solid gold;
+  width: 70px;
+  border-bottom: 5px solid #c59d5f;
   padding-top: 10px;
 }
+
 .buttons {
   margin: auto;
   display: flex;
   justify-content: space-around;
-
-  width: 40%;
+  width: 30%;
   padding-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
+
+.btn {
+  width: auto;
+  padding: 5px 15px 5px 15px;
+  border: 2px solid #c59d5f;
+  background-color: inherit;
+  border-radius: 8px 8px 8px 8px;
+  transition: ease-in-out 0.2s;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #c59d5f;
+}
+
 /* section container */
 .section-center {
   display: grid;
-  justify-content: left;
+  justify-content: center;
   grid-template-columns: repeat(2, 600px);
-  column-gap: auto;
+  column-gap: 20px;
   row-gap: 20px;
   grid-template-rows: auto;
 }
@@ -54,13 +73,20 @@ img {
 header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px dotted grey;
   padding-bottom: 5px;
 }
-
+.food-type {
+  font-weight: bold;
+  font-size: 20px;
+}
+.price {
+  color: #c59d5f;
+  font-size: 20px;
+}
 .item-info {
-  padding: 10px;
+  padding-left: 10px;
 }
 .item-text {
-  padding-top: 10px;
+  padding-top: 15px;
 }
