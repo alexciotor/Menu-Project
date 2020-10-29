@@ -1,7 +1,7 @@
 const menu = [{
     id: 1,
     title: 'Peperoni Pizza',
-    cateogy: 'Lunch',
+    category: 'Lunch',
     price: 15.99, 
     img: "./Photo/photo1.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -9,7 +9,7 @@ const menu = [{
 {
     id: 2,
     title: 'Double Beef Burger',
-    cateogy: 'Dinner',
+    category: 'Dinner',
     price: 25.99, 
     img: "./Photo/photo2.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -17,7 +17,7 @@ const menu = [{
 {
     id: 3,
     title: 'Chicken Sandwich and Fries',
-    cateogy: 'Dinner',
+    category: 'Dinner',
     price: 19.89, 
     img: "./Photo/photo3.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -26,7 +26,7 @@ const menu = [{
 {
     id: 4,
     title: 'Avocado Salad',
-    cateogy: 'Breakfest',
+    category: 'Breakfest',
     price: 14.69, 
     img: "./Photo/photo4.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -35,7 +35,7 @@ const menu = [{
 {
     id: 5,
     title: 'Mixed Rice Salad',
-    cateogy: 'Lunch',
+    cateogry: 'Lunch',
     price: 13.99, 
     img: "./Photo/photo5.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -43,7 +43,7 @@ const menu = [{
 {
     id: 6,
     title: 'Tomato Sos Pasta',
-    cateogy: 'Dinner',
+    category: 'Dinner',
     price: 19.99, 
     img: "./Photo/photo6.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -52,7 +52,7 @@ const menu = [{
 {
     id: 7,
     title: 'Beef Steak and Vegetables',
-    cateogy: 'Dinner',
+    category: 'Dinner',
     price: 35.99, 
     img: "./Photo/photo7.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -61,7 +61,7 @@ const menu = [{
 {
     id: 8,
     title: 'Fresh Sushi',
-    cateogy: 'Lunch',
+    category: 'Lunch',
     price: 15.99, 
     img: "./Photo/photo8.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -70,7 +70,7 @@ const menu = [{
 {
     id: 9,
     title: 'Caramel Pancakes',
-    cateogy: 'Desert',
+    category: 'Desert',
     price: 10.99, 
     img: "./Photo/photo9.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -79,7 +79,7 @@ const menu = [{
 {
     id: 10,
     title: 'Solmon with Rice',
-    cateogy: 'Lunch',
+    category: 'Lunch',
     price: 22.99, 
     img: "./Photo/photo10.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -88,7 +88,7 @@ const menu = [{
 {
     id: 11,
     title: 'Chicken Strips',
-    cateogy: 'Lunch',
+    category: 'Lunch',
     price: 8.99, 
     img: "./Photo/photo11.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
@@ -97,18 +97,23 @@ const menu = [{
 {
     id: 12,
     title: 'Ribes',
-    cateogy: 'Dinner',
+    category: 'Dinner',
     price: 26.99, 
     img: "./Photo/photo12.jpg",
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ipsa tenetur qui error velit ab impedit,laudantium modi labore nulla maxime porro veniam cumque consequatur commodi aperiam, laborum fuga officia!'
-}
+},
+ 
 
 ]
 
 const sectionCenter = document.querySelector('.section-center');
-
+const filterBtn =document.querySelectorAll('.btn')
 window.addEventListener('DOMContentLoaded', function(){
-    let displayMenu =menu.map(item=>{
+    displayMenuItems(menu)
+})
+
+const displayMenuItems=(menuItems)=>{
+let displayMenu =menuItems.map(item=>{
        
        return  `<article class="menu-item"> 
         <img src=${item.img} alt="food">
@@ -127,6 +132,23 @@ window.addEventListener('DOMContentLoaded', function(){
    
     })
    displayMenu = displayMenu.join('');
-   console.log(displayMenu)
+   
    sectionCenter.innerHTML =displayMenu
+}
+
+filterBtn.forEach(btn=>{
+    btn.addEventListener('click',function(e){
+     const category =   e.currentTarget.dataset.id;
+     const menuCateogry = menu.filter(function(menuItem){  
+         if(menuItem.category===category){ 
+    return menuItem
+         }
+     })
+     if(category==='all'){
+         displayMenuItems(menu)
+     }
+        else{
+             displayMenuItems(menuCateogry)
+         }
+    })
 })
